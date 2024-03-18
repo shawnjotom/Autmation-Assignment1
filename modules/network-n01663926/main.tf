@@ -19,7 +19,7 @@ resource "azurerm_virtual_network" "n01663926-VNET" {
 }
 
 resource "azurerm_subnet" "n01663926-SUBNET" {
-  name                 = "n01663926-SUBNET"
+  name                 = var.subnet_name
   resource_group_name = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.n01663926-VNET.name
   address_prefixes     = ["10.0.1.0/24"]
@@ -28,7 +28,7 @@ resource "azurerm_subnet" "n01663926-SUBNET" {
 }
 
 resource "azurerm_network_security_group" "n01663926-NSG" {
-  name                = "n01663926-NSG"
+  name                = var.nsg_name
   location = var.location
   resource_group_name = var.resource_group_name
 

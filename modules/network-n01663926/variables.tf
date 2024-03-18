@@ -14,8 +14,7 @@ variable "virtual_network_name" {
 }
 
 variable "subnet_name" {
-  description = "The name of the subnet"
-  default     = "n01663926-SUBNET"
+
 }
 
 variable "subnet_address_prefix" {
@@ -24,6 +23,5 @@ variable "subnet_address_prefix" {
 }
 
 variable "nsg_name" {
-  description = "The name of the network security group"
-  default     = "n01663926-NSG"
+
 }

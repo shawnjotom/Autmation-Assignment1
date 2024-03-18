@@ -8,6 +8,19 @@ variable "resource_group_name" {
   default = "n01663926-RG"
 }
 
+variable "linux_availability_set_name" {
+
+}
+
+variable "network_watcher_name" {
+
+}
+
+variable "azure_monitor_name" {
+
+}
+
+
 variable "vm_names" {
   type    = list(string)
   default = ["vm-linux-01", "vm-linux-02", "vm-linux-03"]

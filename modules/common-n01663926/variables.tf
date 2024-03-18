@@ -8,3 +8,15 @@ variable "location" {
   default = "CanadaCentral"
 }
 
+variable "log_analytics_workspace_name" {
+
+}
+
+variable "recovery_services_vault_name" {
+
+}
+
+variable "storage_account_name" {
+
+}
+

@@ -1,5 +1,5 @@
 resource "azurerm_availability_set" "linux_availability_set" {
-  name                = "linux-availability-set"
+  name                = var.linux_availability_set_name
   resource_group_name = var.resource_group_name
   location            = var.location
 
@@ -60,7 +60,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
 
 resource "azurerm_virtual_machine_extension" "network_watcher" {
   for_each            = toset(var.vm_names)
-  name                = "NetworkWatcherAgentLinux"
+  name                = var.network_watcher_name
   virtual_machine_id  = azurerm_linux_virtual_machine.linux_vm[each.key].id
   publisher           = "Microsoft.Azure.NetworkWatcher"
   type                = "NetworkWatcherAgentLinux"
@@ -76,7 +76,7 @@ resource "azurerm_virtual_machine_extension" "network_watcher" {
 
 resource "azurerm_virtual_machine_extension" "azure_monitor" {
   for_each            = toset(var.vm_names)
-  name                = "AzureMonitorLinuxAgent"
+  name                = var.azure_monitor_name
   virtual_machine_id  = azurerm_linux_virtual_machine.linux_vm[each.key].id
   publisher           = "Microsoft.Azure.Monitor"
   type                = "AzureMonitorLinuxAgent"
